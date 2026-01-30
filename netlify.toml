@@ -4,13 +4,9 @@
   # No build command needed for static site
   publish = "."
 
-# Form notifications
-[[plugins]]
-  package = "@netlify/plugin-form-notifications"
-
-# Redirect rules (optional - you can add custom redirects here)
+# Redirect rules - serve index.html as the main page
 [[redirects]]
   from = "/*"
-  to = "/sage-sports-group.html"
+  to = "/index.html"
   status = 200
   force = false
