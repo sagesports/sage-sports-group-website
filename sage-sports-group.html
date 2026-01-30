@@ -6,7 +6,7 @@
     <title>Sage Sports Group | Data-Driven Sports Ownership</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         :root {
             --color-bg: #0a0f14;
@@ -17,7 +17,7 @@
             --color-accent: #c9a962;
             --color-accent-hover: #dfc07a;
             --color-border: rgba(201, 169, 98, 0.2);
-            --font-display: 'Libre Bodoni', Georgia, serif;
+            --font-display: 'Cormorant Garamond', Georgia, serif;
             --font-body: 'Inter', -apple-system, sans-serif;
         }
 
@@ -64,10 +64,10 @@
         .logo {
             font-family: var(--font-display);
             font-size: 1.5rem;
-            font-weight: 400;
+            font-weight: 600;
             color: var(--color-text);
             text-decoration: none;
-            letter-spacing: 0.15em;
+            letter-spacing: 0.02em;
         }
 
         .logo span {
@@ -553,9 +553,8 @@
         .footer-logo {
             font-family: var(--font-display);
             font-size: 1.25rem;
-            font-weight: 400;
+            font-weight: 600;
             color: var(--color-text);
-            letter-spacing: 0.15em;
         }
 
         .footer-logo span {
@@ -808,12 +807,7 @@
         </div>
         <div class="contact-content">
             <p>We're building the future of sports ownership through data-driven decision making. If you're interested in learning more about Sage Sports Group, we'd welcome the opportunity to connect.</p>
-            <form class="contact-form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-                <input type="hidden" name="form-name" value="contact">
-                <!-- Hidden honeypot field for spam protection -->
-                <p style="display: none;">
-                    <label>Don't fill this out if you're human: <input name="bot-field" /></label>
-                </p>
+            <form class="contact-form" action="#" method="POST">
                 <div class="form-row">
                     <div class="form-group">
                         <label for="name">Name</label>
@@ -840,7 +834,7 @@
     <!-- Footer -->
     <footer>
         <div class="footer-logo">Sage Sports Group<span>.</span></div>
-        <p class="footer-text">© 2026 Sage Sports Group. All rights reserved.</p>
+        <p class="footer-text">Â© 2025 Sage Sports Group. All rights reserved.</p>
         <div class="footer-links">
             <a href="mailto:info@sagesportsgroup.com">info@sagesportsgroup.com</a>
         </div>
@@ -869,6 +863,13 @@
                     });
                 }
             });
+        });
+
+        // Form submission (placeholder)
+        document.querySelector('.contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your interest. We will be in touch shortly.');
+            this.reset();
         });
     </script>
 </body>
