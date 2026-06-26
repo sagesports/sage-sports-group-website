@@ -558,6 +558,71 @@
             margin-top: 0.25rem;
         }
 
+        /* Portfolio Section */
+        #portfolio {
+            background: var(--color-bg-secondary);
+        }
+
+        .portfolio-grid {
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+            flex-wrap: wrap;
+            max-width: 900px;
+            margin: 0 auto;
+            align-items: center;
+        }
+
+        .club-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+
+        .club-card:hover {
+            transform: translateY(-6px);
+        }
+
+        .club-logo-wrap {
+            width: 180px;
+            height: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--color-bg-card);
+            border: 1px solid var(--color-border);
+            padding: 1.5rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .club-card:hover .club-logo-wrap {
+            border-color: var(--color-accent);
+        }
+
+        .club-logo-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .club-name {
+            font-size: 0.8rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--color-text-muted);
+        }
+
+        .hero-logo {
+            width: 120px;
+            height: auto;
+            margin-bottom: 2.5rem;
+            opacity: 0;
+            animation: fadeUp 0.8s ease 0s forwards;
+        }
+
         /* Contact Section */
         #contact {
             background: var(--color-bg);
@@ -750,13 +815,12 @@
 <body>
     <!-- Navigation -->
     <nav id="navbar">
-        <a href="#" class="logo">Sage Sports Group<svg class="logo-leaf" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-            <path d="M17,8C8,10 5.9,16.17 3.82,21.34L5.71,22L6.66,19.7C7.14,19.87 7.64,20 8,20C19,20 22,3 22,3C21,5 14,5.25 9,6.25C4,7.25 2,11.5 2,13.5C2,15.5 3.75,17.25 3.75,17.25C7,8 17,8 17,8Z"/>
-        </svg></a>
+        <a href="#" class="logo"><img src="sage-logo-white.png" alt="Sage Sports Group" style="height: 44px; width: auto;"></a>
         <ul class="nav-links">
             <li><a href="#thesis">Tesis</a></li>
             <li><a href="#approach">Enfoque</a></li>
             <li><a href="#team">Equipo</a></li>
+            <li><a href="#portfolio">Portafolio</a></li>
             <li><a href="#testimonials">Testimonios</a></li>
             <li><a href="#contact">Contacto</a></li>
         </ul>
@@ -774,6 +838,7 @@
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="hero-content">
+            <img src="og-image.png" alt="Sage Sports Group" class="hero-logo">
             <p class="hero-eyebrow">Propiedad Deportiva Basada en Datos</p>
             <h1>Donde la Analítica <em>Se Encuentra</em> con la Propiedad</h1>
             <p class="hero-description">
@@ -898,7 +963,7 @@
             </div>
             <div class="team-card">
                 <div class="team-photo">
-                    <img id="colin-photo" src="colin-montague.jpg" alt="Colin Montague">
+                    <img id="colin-photo" src="colin-montague-new.jpg" alt="Colin Montague">
                 </div>
                 <div class="team-info">
                     <h3 class="team-name">Colin Montague</h3>
@@ -914,6 +979,28 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio">
+        <div class="section-header">
+            <p class="section-eyebrow">Nuestro Portafolio</p>
+            <h2 class="section-title">Clubes Invertidos</h2>
+        </div>
+        <div class="portfolio-grid">
+            <a href="https://miners.ruhr/" target="_blank" rel="noopener noreferrer" class="club-card">
+                <div class="club-logo-wrap">
+                    <img src="miners-logo.png" alt="ETB Miners Essen">
+                </div>
+                <span class="club-name">ETB Miners — Essen, Alemania</span>
+            </a>
+            <a href="https://palmerbasket.com/" target="_blank" rel="noopener noreferrer" class="club-card">
+                <div class="club-logo-wrap">
+                    <img src="palmer-logo.png" alt="Palmer Basket Mallorca">
+                </div>
+                <span class="club-name">Palmer Basket — Mallorca, España</span>
+            </a>
         </div>
     </section>
 
@@ -999,7 +1086,7 @@
         </svg></div>
         <p class="footer-text">© 2026 Sage Sports Group. Todos los derechos reservados.</p>
         <div class="footer-links">
-            <a href="/cdn-cgi/l/email-protection#e68f888089a6958781839596899492958194899396c885898b"><span class="__cf_email__" data-cfemail="e28b8c848da29183858791928d90969185908d9792cc818d8f">[email&#160;protected]</span></a>
+            <a href="mailto:paul@sagesportsgroup.com">paul@sagesportsgroup.com</a>
         </div>
     </footer>
 
