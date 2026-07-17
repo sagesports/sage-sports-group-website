@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sage Sports Group — Investor Note, Issue 01</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+
+  :root{
+    --paper:#F6F3EA;
+    --ink:#152219;
+    --sage-deep:#1F3A2A;
+    --sage-mid:#3C6249;
+    --gold:#C79A3D;
+    --clay:#B15A34;
+    --line:#D9D2BE;
+    --paper-2:#EFEADB;
+  }
+
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--sage-deep);
+    font-family:'Inter',sans-serif;
+    color:var(--ink);
+    -webkit-font-smoothing:antialiased;
+  }
+
+  .sheet{
+    max-width:680px;
+    margin:0 auto;
+    background:var(--paper);
+    position:relative;
+  }
+
+  /* ===== Back bar ===== */
+  .back-bar{
+    background:var(--sage-deep);
+    padding:14px 32px 0;
+  }
+  .back-bar a{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:#9FB9A3;
+    text-decoration:none;
+    border-bottom:1px solid rgba(159,185,163,.4);
+  }
+  .back-bar a:hover{color:var(--paper);border-bottom-color:var(--paper);}
+
+  /* ===== Masthead ===== */
+  .masthead{
+    background:var(--sage-deep);
+    color:var(--paper);
+    padding:14px 32px 22px;
+    border-bottom:3px solid var(--gold);
+  }
+  .masthead-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    color:#C9D6C9;
+    margin-bottom:14px;
+  }
+  .masthead-row span:last-child{color:var(--gold);}
+  .masthead-brand-row{
+    display:flex;
+    align-items:center;
+    gap:14px;
+  }
+  .masthead-logo{
+    height:40px;
+    width:40px;
+    object-fit:contain;
+    border-radius:6px;
+    background:rgba(246,243,234,.06);
+    padding:5px;
+  }
+  .brand{
+    font-family:'Fraunces',serif;
+    font-weight:600;
+    font-size:30px;
+    letter-spacing:.01em;
+    margin:0;
+  }
+  .brand em{font-style:italic;font-weight:400;color:var(--gold);}
+  .tagline{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11.5px;
+    color:#B7C6B9;
+    margin-top:6px;
+    letter-spacing:.03em;
+  }
+
+  /* ===== Club section header with crest ===== */
+  .club-head{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin:38px 0 14px;
+    padding-top:22px;
+    border-top:1px solid var(--line);
+  }
+  .club-head img{
+    height:38px;
+    width:38px;
+    object-fit:contain;
+    flex-shrink:0;
+  }
+  .club-head h2{
+    margin:0;
+    padding-top:0;
+    border-top:none;
+  }
+
+  /* ===== Hero ===== */
+  .hero{
+    padding:40px 32px 8px;
+  }
+  .eyebrow{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--clay);
+    font-weight:600;
+    margin-bottom:10px;
+  }
+  h1{
+    font-family:'Fraunces',serif;
+    font-size:35px;
+    line-height:1.12;
+    font-weight:600;
+    margin:0 0 14px;
+    color:var(--sage-deep);
+  }
+  h1 em{color:var(--clay);font-style:italic;}
+  .dek{
+    font-size:16.5px;
+    line-height:1.55;
+    color:#3B4A40;
+    max-width:56ch;
+    margin:0;
+  }
+
+  /* ===== Scoreboard ticker (signature element) ===== */
+  .ticker{
+    margin:28px 32px 6px;
+    border:1px solid var(--sage-deep);
+    background:var(--sage-deep);
+    border-radius:4px;
+    overflow:hidden;
+  }
+  .ticker-head{
+    display:flex;
+    justify-content:space-between;
+    padding:9px 16px;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:10px;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    color:#8FAE95;
+    border-bottom:1px solid rgba(255,255,255,.12);
+  }
+  .ticker-row{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:13px 16px;
+    border-bottom:1px solid rgba(255,255,255,.08);
+    font-family:'IBM Plex Mono',monospace;
+  }
+  .ticker-row:last-child{border-bottom:none;}
+  .tr-club{color:var(--paper);font-size:13.5px;font-weight:600;}
+  .tr-league{color:#9FB9A3;font-size:11.5px;margin-left:8px;font-weight:400;}
+  .tr-status{
+    font-size:10.5px;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    padding:4px 9px;
+    border-radius:20px;
+    font-weight:600;
+    white-space:nowrap;
+  }
+  .status-up{background:rgba(199,154,61,.18);color:var(--gold);border:1px solid rgba(199,154,61,.5);}
+  .status-close{background:rgba(140,190,150,.15);color:#B7D8BC;border:1px solid rgba(183,216,188,.4);}
+  .status-watch{background:rgba(255,255,255,.06);color:#9FB9A3;border:1px solid rgba(159,185,163,.3);}
+
+  /* ===== Body ===== */
+  .body{
+    padding:36px 32px 8px;
+  }
+  p{
+    font-size:16px;
+    line-height:1.68;
+    color:#28362C;
+    margin:0 0 22px;
+  }
+  p strong{color:var(--sage-deep);}
+  .drop{
+    font-family:'Fraunces',serif;
+    font-weight:600;
+  }
+  h2{
+    font-family:'Fraunces',serif;
+    font-size:22px;
+    font-weight:600;
+    color:var(--sage-deep);
+    margin:38px 0 14px;
+    padding-top:22px;
+    border-top:1px solid var(--line);
+  }
+  a{color:var(--clay);text-decoration:none;border-bottom:1px solid rgba(177,90,52,.35);}
+  a:hover{border-bottom-color:var(--clay);}
+
+  /* ===== Translated press box ===== */
+  .press-box{
+    background:var(--paper-2);
+    border-left:3px solid var(--sage-mid);
+    padding:18px 20px;
+    margin:0 0 24px;
+    border-radius:0 4px 4px 0;
+  }
+  .press-box .src{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:10.5px;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--sage-mid);
+    margin-bottom:8px;
+    display:flex;
+    justify-content:space-between;
+  }
+  .press-box p{
+    font-size:14.5px;
+    line-height:1.6;
+    margin:0 0 10px;
+    color:#3A4A3F;
+  }
+  .press-box p:last-child{margin-bottom:0;}
+  .press-box .read-link{
+    font-size:12.5px;
+    font-family:'IBM Plex Mono',monospace;
+  }
+
+  /* ===== Market snapshot card ===== */
+  .market-card{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:1px;
+    background:var(--line);
+    border:1px solid var(--line);
+    border-radius:4px;
+    overflow:hidden;
+    margin:6px 0 26px;
+  }
+  .market-cell{
+    background:var(--paper);
+    padding:16px 18px;
+  }
+  .market-cell .k{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:10px;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    color:#7D8B7F;
+    margin-bottom:6px;
+  }
+  .market-cell .v{
+    font-family:'Fraunces',serif;
+    font-size:15.5px;
+    font-weight:600;
+    color:var(--sage-deep);
+    line-height:1.35;
+  }
+
+  /* ===== CTA ===== */
+  .cta{
+    margin:14px 32px 40px;
+    background:var(--sage-deep);
+    border-radius:6px;
+    padding:30px 28px;
+    text-align:left;
+  }
+  .cta h3{
+    font-family:'Fraunces',serif;
+    color:var(--paper);
+    font-size:21px;
+    font-weight:600;
+    margin:0 0 10px;
+  }
+  .cta p{
+    color:#C9D6C9;
+    font-size:14.5px;
+    margin:0 0 20px;
+    line-height:1.6;
+  }
+  .cta-btn{
+    display:inline-block;
+    background:var(--gold);
+    color:var(--sage-deep);
+    font-family:'IBM Plex Mono',monospace;
+    font-weight:600;
+    font-size:13px;
+    letter-spacing:.04em;
+    padding:12px 22px;
+    border-radius:3px;
+    text-decoration:none;
+    border:none;
+  }
+
+  /* ===== Footer ===== */
+  .footer{
+    padding:22px 32px 34px;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    color:#7D8B7F;
+    line-height:1.7;
+    border-top:1px solid var(--line);
+  }
+  .footer a{color:#7D8B7F;border-bottom:1px solid #C7CFC7;}
+
+  @media(max-width:520px){
+    .masthead,.hero,.body,.footer,.back-bar{padding-left:20px;padding-right:20px;}
+    .ticker,.cta{margin-left:20px;margin-right:20px;}
+    h1{font-size:28px;}
+    .market-card{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="back-bar">
+    <a href="/newsletter/">← All Issues</a>
+  </div>
+
+  <div class="masthead">
+    <div class="masthead-row">
+      <span>Sage Sports Group</span>
+      <span>Issue 01 — July 2026</span>
+    </div>
+    <div class="masthead-brand-row">
+      <a href="/" aria-label="Sage Sports Group home">
+        <img class="masthead-logo" src="https://sagesportsgroup.com/og-image.png" alt="Sage Sports Group logo">
+      </a>
+      <p class="brand"><em>Sage Sports Group Notes</em></p>
+    </div>
+    <p class="tagline">A biweekly dispatch on the fund, the clubs, and the market we're building in.</p>
+  </div>
+
+  <div class="hero">
+    <div class="eyebrow">Two closings, one thesis </div>
+    <h1>We closed <em>twice</em> and seen promotion success <em>twice</em>.</h1>
+    <p class="dek">In the space of two months, ETB Miners Essen earned sporting promotion to Pro A, Palmer Basket Mallorca became our second portfolio club, and a pro bono relationship in Mexico made a Cinderella run of its own which would have earned a promotion if it was in a country with a promotion/relegation structure. Here's what happened, what the market is telling us, and why the next window matters.</p>
+  </div>
+
+  <div class="ticker">
+    <div class="ticker-head"><span>Portfolio Status</span><span>Live</span></div>
+    <div class="ticker-row">
+      <div><span class="tr-club">ETB Miners Essen</span><span class="tr-league">GER · Pro B → Pro A</span></div>
+      <div class="tr-status status-up">Promoted ▲</div>
+    </div>
+    <div class="ticker-row">
+      <div><span class="tr-club">Palmer Basket Mallorca</span><span class="tr-league">ESP · Primera FEB</span></div>
+      <div class="tr-status status-close">Closed this week</div>
+    </div>
+    <div class="ticker-row">
+      <div><span class="tr-club">French Riviera club</span><span class="tr-league">FRA · 2nd division</span></div>
+      <div class="tr-status status-watch">In active discussions</div>
+    </div>
+    <div class="ticker-row">
+      <div><span class="tr-club">Frayles de Guasave</span><span class="tr-league">MEX · CIBACOPA · pro bono</span></div>
+      <div class="tr-status status-close">Runner-up 2026</div>
+    </div>
+  </div>
+
+  <div class="body">
+
+    <p><span class="drop">If</span> you've spoken with Colin or me over the past year, you've heard the thesis more than once: buy well-run clubs sitting that lack the resources to grow from a local-run club to a one with national and continental potential via promotion. We back the basketball operation with the kind of data infrastructure we built at ESPN and the Kings and let sporting success do the heavy lifting on enterprise value. It's a thesis that only means something once it survives contact with an actual season. This month, it did — twice.</p>
+
+    <div class="club-head">
+      <img src="https://www.thesportsdb.com/images/media/team/badge/e5ixjl1783275296.png" alt="ETB Miners Essen crest">
+      <h2>Essen wrote its own headline</h2>
+    </div>
+    <p>ETB Miners Essen dropped a single game across the <em>entire</em> playoff run — closing out the semifinal series in two games before sealing the ProB championship outright — and punched their ticket into the <strong>BARMER 2. Basketball Bundesliga ProA</strong> for the 2026/27 season <a href="https://miners.ruhr/" target="_blank" rel="noopener">for the first time in the club's history</a>. It is the single largest jump in national profile a lower-division German club can make in one summer — a full tier up, into a league with vastly greater media exposure, sponsorship density, and player pathway value.</p>
+
+    <div class="press-box">
+      <div class="src"><span>ETB Miners — Official Club Statement</span><span>DE → EN</span></div>
+      <p>The club confirmed the licensing outcome came with conditions attached but called the result "a further milestone" built on a season of hard work, thanking fans, partners, and sponsors for making the step possible. Season-ticket sales for the ProA campaign opened immediately after the announcement.</p>
+      <a class="read-link" href="https://miners.ruhr/" target="_blank" rel="noopener">Read the original (German) →</a>
+    </div>
+
+    <div class="club-head">
+      <img src="https://sagesportsgroup.com/palmer-logo.png" alt="Palmer Basket Mallorca crest">
+      <h2>Palmer: from principle to signature</h2>
+    </div>
+    <p>Nearly in parallel, the deal we've been building with Palmer Basket Mallorca converted from a memorandum of understanding into a signed strategic alliance. Club president Vicenç Palmer first confirmed the agreement at the season-close press conference that hands sporting planning and full control of the club to Sage while <a href="https://www.ultimahora.es/deportes/baloncesto/2026/05/28/2638897/palmer-basket-confirma-alianza-sage-sport-group.html" target="_blank" rel="noopener">preserving the club's Mallorcan identity and Grupo Palmer's role as lead sponsor</a>. Regional outlets were quick to draw the parallel to RCD Mallorca and Atlético Baleares — foreign ownership has already reshaped football on the island; Palmer is now the first club to bring that model to Balearic basketball, and <a href="https://www.cope.es/emisoras/illes-balears/baleares/mallorca/deportes-mallorca/audios/vicenc-palmer-sobre-nuevo-proyecto-sage-sports-group-gran-oportunidad-20260603_3377479.html" target="_blank" rel="noopener">Palmer told COPE Baleares directly that the American group "already has a general manager" lined up and will bring a meaningful capital contribution to the project</a>.</p>
+
+    <div class="press-box">
+      <div class="src"><span>Última Hora / COPE Baleares / Fibwi Diario</span><span>ES → EN</span></div>
+      <p>Última Hora's coverage of the confirmation quoted Palmer calling the tie-up "structure, viability, and long-term vision" for a club that intends to build talent pipelines from the NCAA into the Balearic program over a three-year horizon. Fibwi Diario, covering the same announcement, noted the alliance is designed to guarantee "growth, sustainability, and a future" for the entity — with Grupo Palmer continuing as lead sponsor and Vicenç Palmer remaining club president throughout.</p>
+      <a class="read-link" href="https://www.fibwidiario.com/articulo/deportes/palmer-basket-contara-sage-sports-group-como/20260529084618320612.html" target="_blank" rel="noopener">Read the original (Spanish) →</a>
+    </div>
+
+    <h2>The market is moving favorably to our advantage, not away</h2>
+    <p>The loudest conversation in European basketball right now isn't about promotion economics — it's about <strong>NBA Europe</strong>. The NBA and FIBA's plan for a 12-to-16-team league, launching October 2027 with franchise fees reportedly in the $500M–$1B range, has pulled in more than $1 billion bids from sovereign wealth funds, private equity, and multi-club operators. It's also made some people nervous — it's a concern we've heard a few times from prospective LPs — that a league skimming the continent's biggest cities and richest owners could starve everything underneath it: the Primera FEBs and ProAs where we actually play.</p>
+
+    <p>The data so far says the opposite is happening. Neither of our deals happened in a vacuum, and the clearest proof point sits in Palmer's own league. <strong>Movistar Estudiantes</strong> — a Madrid institution playing in the same Primera FEB as Palmer Basket — just changed hands: Diego Megía, founder of Taula Capital Management, agreed to buy the club's reference shareholders out for roughly <strong>€6.6M</strong>, on top of a committed <strong>€15M</strong> capital increase to fund a push to Liga Endesa, putting total capital into the club near <strong>€22M</strong>. It beat out a competing bid of €28.8M from an IFM Investors executive and a private wealth advisor — <a href="https://www.2playbook.com/clubes/duenos-movistar-estudiantes-pactan-venta-club-diego-megia_22724_102.html" target="_blank" rel="noopener">2Playbook reported both camps were explicit that the prize was Euroliga participation, underwritten by a future arena and a €30–50M annual budget once there</a>. That deal closed in the same weeks NBA Europe was fielding billion-dollar bids for its top tier — capital didn't skip Primera FEB waiting to see how NBA Europe shakes out, it showed up anyway, at a valuation multiple of where we just closed in the same league. Our acquisition of Palmer Basket was finalized at a fraction of the Movistar Estudiantes sale price. If anything, NBA Europe is doing what a rising tide usually does: raising attention, and money, at every level under it.</p>
+
+    <p>The broadcast market is confirming the same story from a different angle: with LaLiga+ shutting down, potential replacements include Movistar Plus+ and DAZN. <a href="https://www.solobasket.com/primera-feb/donde-podra-verse-la-primera-feb-en-la-temporada-2026-27-tras-el-cierre-de-laliga" target="_blank" rel="noopener">Industry coverage is now framing the league as a relatively inexpensive way for a broadcaster to reclaim national basketball presence</a>. Rights value and ownership value tend to move together. We didn't need either tailwind to underwrite Palmer, but we're glad to have both.</p>
+
+    <div class="market-card">
+      <div class="market-cell">
+        <div class="k">Capital Signal — Movistar Estudiantes</div>
+        <div class="v">~€7M share purchase + €15M capital increase, ~€22M total, to chase Euroliga</div>
+      </div>
+      <div class="market-cell">
+        <div class="k">Media Signal — Primera FEB</div>
+        <div class="v">Movistar Plus+ launches two linear basketball channels, folds in the league</div>
+      </div>
+    </div>
+
+    <h2>Why this matters for the fund</h2>
+    <p>Two clubs, two countries, two very different paths to the same outcome: a step-change in league position and league economics. Essen validates the sporting side of the underwriting — our operational involvement, including taking the sporting director function in-house, is already showing up in cost discipline heading into a tougher league. Palmer validates the origination side — we can still find, negotiate, and close family-run European clubs before the broader capital market notices them. That combination is the whole fund thesis in miniature.</p>
+
+    <p>One more result worth flagging, even though it isn't a portfolio club: <strong>Frayles de Guasave</strong>, a CIBACOPA team in Sinaloa, Mexico, that we've supported pro bono with our analytics work, finished runner-up in the 2026 CIBACOPA championship, falling to Astros de Jalisco in the final. Frayles did it while running the smallest budget in the league — the same underlying argument we make to every club we do put capital behind: the gap between a well-run analytics operation and a well-funded one is smaller than people assume. We don't have an equity stake in Frayles, and we're not going to pretend otherwise, but it's the cleanest live demonstration we have of what the basketball side of Sage actually does before a dollar of capital shows up.</p>
+
+    <p>We're not slowing down. We're in active discussions with a club on the French Riviera playing in the second tier of French basketball, and conversations with several capital partners continue to progress. If you've been following Sage from the sidelines, or if we spoke a few months ago and the timing wasn't right, this is the moment the pipeline is moving fastest — and the window on this round won't stay open indefinitely.</p>
+
+  </div>
+
+  <div class="cta">
+    <h3>Updated fund materials are ready.</h3>
+    <p>The Essen and Palmer post-close numbers are folded into the latest deck. If you'd like to book time with Paul or Colin to go through it, just reply — or reach us directly below.</p>
+    <a class="cta-btn" href="mailto:paul@sagesportsgroup.com,colin@sagesportsgroup.com?subject=Sage%20Notes%20—%20Investor%20Call%20Request">Book time with us →</a>
+  </div>
+
+  <div class="footer">
+    Sage Sports Group · Paul Sabin (<a href="mailto:paul@sagesportsgroup.com">paul@sagesportsgroup.com</a>) &amp; Colin Montague (<a href="mailto:colin@sagesportsgroup.com">colin@sagesportsgroup.com</a>)<br>
+    Portfolio: ETB Miners Essen (GER) · Palmer Basket Mallorca (ESP)<br>
+    <a href="https://sagesportsgroup.com" target="_blank" rel="noopener">sagesportsgroup.com</a> · This note is for informational purposes only and does not constitute an offer to sell or a solicitation of an offer to buy any security.
+  </div>
+
+</div>
+</body>
+</html>
