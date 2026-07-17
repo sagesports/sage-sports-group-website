@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sage Sports Group Notes — Issue Archive</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+
+  :root{
+    --paper:#F6F3EA;
+    --ink:#152219;
+    --sage-deep:#1F3A2A;
+    --sage-mid:#3C6249;
+    --gold:#C79A3D;
+    --clay:#B15A34;
+    --line:#D9D2BE;
+    --paper-2:#EFEADB;
+  }
+
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--sage-deep);
+    font-family:'Inter',sans-serif;
+    color:var(--ink);
+    -webkit-font-smoothing:antialiased;
+  }
+
+  .sheet{
+    max-width:680px;
+    margin:0 auto;
+    background:var(--paper);
+    min-height:100vh;
+  }
+
+  .masthead{
+    background:var(--sage-deep);
+    color:var(--paper);
+    padding:28px 32px 22px;
+    border-bottom:3px solid var(--gold);
+  }
+  .masthead-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    color:#C9D6C9;
+    margin-bottom:14px;
+  }
+  .masthead-row span:last-child{color:var(--gold);}
+  .masthead-brand-row{
+    display:flex;
+    align-items:center;
+    gap:14px;
+  }
+  .masthead-logo{
+    height:40px;
+    width:40px;
+    object-fit:contain;
+    border-radius:6px;
+    background:rgba(246,243,234,.06);
+    padding:5px;
+  }
+  .brand{
+    font-family:'Fraunces',serif;
+    font-weight:600;
+    font-size:30px;
+    letter-spacing:.01em;
+    margin:0;
+  }
+  .brand em{font-style:italic;font-weight:400;color:var(--gold);}
+  .tagline{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11.5px;
+    color:#B7C6B9;
+    margin-top:6px;
+    letter-spacing:.03em;
+  }
+
+  .archive-head{
+    padding:40px 32px 8px;
+  }
+  .eyebrow{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--clay);
+    font-weight:600;
+    margin-bottom:10px;
+  }
+  h1{
+    font-family:'Fraunces',serif;
+    font-size:32px;
+    line-height:1.15;
+    font-weight:600;
+    margin:0 0 10px;
+    color:var(--sage-deep);
+  }
+  .archive-head p{
+    font-size:15.5px;
+    line-height:1.55;
+    color:#3B4A40;
+    max-width:56ch;
+    margin:0;
+  }
+
+  .issue-list{
+    padding:20px 32px 48px;
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+  }
+  .issue-card{
+    display:block;
+    background:var(--paper-2);
+    border:1px solid var(--line);
+    border-radius:6px;
+    padding:20px 22px;
+    text-decoration:none;
+    transition:border-color .15s ease;
+  }
+  .issue-card:hover{border-color:var(--sage-mid);}
+  .issue-card .meta{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:10.5px;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--sage-mid);
+    margin-bottom:8px;
+  }
+  .issue-card .title{
+    font-family:'Fraunces',serif;
+    font-size:19px;
+    font-weight:600;
+    color:var(--sage-deep);
+    line-height:1.3;
+    margin-bottom:6px;
+  }
+  .issue-card .dek{
+    font-size:14px;
+    line-height:1.55;
+    color:#3A4A3F;
+    margin:0;
+  }
+  .issue-card .read{
+    display:inline-block;
+    margin-top:12px;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11.5px;
+    font-weight:600;
+    color:var(--clay);
+  }
+
+  .footer{
+    padding:22px 32px 34px;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    color:#7D8B7F;
+    line-height:1.7;
+    border-top:1px solid var(--line);
+  }
+  .footer a{color:#7D8B7F;border-bottom:1px solid #C7CFC7;text-decoration:none;}
+
+  @media(max-width:520px){
+    .masthead,.archive-head,.issue-list,.footer{padding-left:20px;padding-right:20px;}
+    h1{font-size:26px;}
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="masthead">
+    <div class="masthead-row">
+      <span>Sage Sports Group</span>
+      <span>Issue Archive</span>
+    </div>
+    <div class="masthead-brand-row">
+      <a href="/" aria-label="Sage Sports Group home">
+        <img class="masthead-logo" src="https://sagesportsgroup.com/og-image.png" alt="Sage Sports Group logo">
+      </a>
+      <p class="brand"><em>Sage Sports Group Notes</em></p>
+    </div>
+    <p class="tagline">A biweekly dispatch on the fund, the clubs, and the market we're building in.</p>
+  </div>
+
+  <div class="archive-head">
+    <div class="eyebrow">All issues</div>
+    <h1>Browse past notes</h1>
+    <p>Every investor note we've sent, in order. Click any issue to read it on the web.</p>
+  </div>
+
+  <!-- Add a new .issue-card at the top of this list for each new issue. -->
+  <div class="issue-list">
+
+    <a class="issue-card" href="/newsletter/issue-01.html">
+      <div class="meta"><span>Issue 01</span><span>July 2026</span></div>
+      <div class="title">We closed twice and saw promotion success twice.</div>
+      <p class="dek">Two closings, one thesis: ETB Miners Essen's promotion, Palmer Basket Mallorca joining the portfolio, and what NBA Europe means for the market underneath it.</p>
+      <span class="read">Read Issue 01 →</span>
+    </a>
+
+  </div>
+
+  <div class="footer">
+    Sage Sports Group · Paul Sabin (<a href="mailto:paul@sagesportsgroup.com">paul@sagesportsgroup.com</a>) &amp; Colin Montague (<a href="mailto:colin@sagesportsgroup.com">colin@sagesportsgroup.com</a>)<br>
+    <a href="https://sagesportsgroup.com" target="_blank" rel="noopener">sagesportsgroup.com</a>
+  </div>
+
+</div>
+</body>
+</html>
