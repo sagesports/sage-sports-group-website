@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sage Sports Group — Investor Note, Issue 02</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+
+  :root{
+    --paper:#F6F3EA;
+    --ink:#152219;
+    --sage-deep:#1F3A2A;
+    --sage-mid:#3C6249;
+    --gold:#C79A3D;
+    --clay:#B15A34;
+    --line:#D9D2BE;
+    --paper-2:#EFEADB;
+  }
+
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--sage-deep);
+    font-family:'Inter',sans-serif;
+    color:var(--ink);
+    -webkit-font-smoothing:antialiased;
+  }
+
+  .sheet{
+    max-width:680px;
+    margin:0 auto;
+    background:var(--paper);
+    position:relative;
+  }
+
+  /* ===== Back bar ===== */
+  .back-bar{
+    background:var(--sage-deep);
+    padding:14px 32px 0;
+  }
+  .back-bar a{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:#9FB9A3;
+    text-decoration:none;
+    border-bottom:1px solid rgba(159,185,163,.4);
+  }
+  .back-bar a:hover{color:var(--paper);border-bottom-color:var(--paper);}
+
+  /* ===== Masthead ===== */
+  .masthead{
+    background:var(--sage-deep);
+    color:var(--paper);
+    padding:14px 32px 22px;
+    border-bottom:3px solid var(--gold);
+  }
+  .masthead-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    color:#C9D6C9;
+    margin-bottom:14px;
+  }
+  .masthead-row span:last-child{color:var(--gold);}
+  .masthead-brand-row{
+    display:flex;
+    align-items:center;
+    gap:14px;
+  }
+  .masthead-logo{
+    height:40px;
+    width:40px;
+    object-fit:contain;
+    border-radius:6px;
+    background:rgba(246,243,234,.06);
+    padding:5px;
+  }
+  .brand{
+    font-family:'Fraunces',serif;
+    font-weight:600;
+    font-size:30px;
+    letter-spacing:.01em;
+    margin:0;
+  }
+  .brand em{font-style:italic;font-weight:400;color:var(--gold);}
+  .tagline{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11.5px;
+    color:#B7C6B9;
+    margin-top:6px;
+    letter-spacing:.03em;
+  }
+
+  /* ===== Issue nav ===== */
+  .issue-nav{
+    background:var(--paper-2);
+    padding:14px 32px;
+    border-bottom:1px solid var(--line);
+  }
+  .issue-nav .label{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:10px;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    color:#7D8B7F;
+    margin-bottom:8px;
+  }
+  .issue-nav-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:10px;
+  }
+  .issue-pill{
+    display:inline-block;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    font-weight:600;
+    letter-spacing:.03em;
+    text-transform:uppercase;
+    color:var(--ink);
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:20px;
+    padding:5px 12px;
+    text-decoration:none;
+    margin-right:8px;
+  }
+  .issue-pill:hover{border-color:var(--sage-mid);}
+  .issue-pill.current{
+    color:var(--sage-deep);
+    border-color:var(--gold);
+  }
+  .archive-link{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11.5px;
+    font-weight:600;
+    color:var(--clay);
+    text-decoration:none;
+  }
+
+  /* ===== Hero ===== */
+  .hero{
+    padding:40px 32px 8px;
+  }
+  .eyebrow{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--clay);
+    font-weight:600;
+    margin-bottom:10px;
+  }
+  h1{
+    font-family:'Fraunces',serif;
+    font-size:35px;
+    line-height:1.12;
+    font-weight:600;
+    margin:0 0 14px;
+    color:var(--sage-deep);
+  }
+  h1 em{color:var(--clay);font-style:italic;}
+  .dek{
+    font-size:16.5px;
+    line-height:1.55;
+    color:#3B4A40;
+    max-width:56ch;
+    margin:0;
+  }
+
+  /* ===== Dark board (coaching staff / roster) ===== */
+  .board{
+    margin:22px 32px 6px;
+    border:1px solid var(--sage-deep);
+    background:var(--sage-deep);
+    border-radius:4px;
+    overflow:hidden;
+  }
+  .board-head{
+    display:grid;
+    grid-template-columns:1.3fr 1.5fr auto;
+    padding:9px 16px;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:10px;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    color:#8FAE95;
+    border-bottom:1px solid rgba(255,255,255,.12);
+  }
+  .board-head.single{grid-template-columns:1fr;}
+  .board-head span:last-child{text-align:right;}
+  .board-row{
+    display:grid;
+    grid-template-columns:1.3fr 1.5fr auto;
+    align-items:center;
+    padding:11px 16px;
+    border-bottom:1px solid rgba(255,255,255,.08);
+    font-family:'IBM Plex Mono',monospace;
+  }
+  .board-row.single{grid-template-columns:1fr;}
+  .board-row:last-child{border-bottom:none;}
+  .br-name{color:var(--paper);font-size:13px;font-weight:600;}
+  .br-role{color:#9FB9A3;font-size:11.5px;margin-left:6px;}
+  .br-from{color:#9FB9A3;font-size:11.5px;}
+  .br-status{
+    font-size:10px;
+    letter-spacing:.05em;
+    text-transform:uppercase;
+    padding:3px 8px;
+    border-radius:20px;
+    font-weight:600;
+    white-space:nowrap;
+    justify-self:end;
+  }
+  .status-up{background:rgba(199,154,61,.18);color:var(--gold);border:1px solid rgba(199,154,61,.5);}
+  .status-close{background:rgba(140,190,150,.15);color:#B7D8BC;border:1px solid rgba(183,216,188,.4);}
+  .status-watch{background:rgba(255,255,255,.06);color:#9FB9A3;border:1px solid rgba(159,185,163,.3);}
+
+  /* ===== Body ===== */
+  .body{
+    padding:36px 32px 8px;
+  }
+  p{
+    font-size:16px;
+    line-height:1.68;
+    color:#28362C;
+    margin:0 0 22px;
+  }
+  p strong{color:var(--sage-deep);}
+
+  /* ===== Fund note ===== */
+  .fund-note{
+    background:var(--paper-2);
+    border-left:3px solid var(--sage-mid);
+    padding:18px 20px;
+    margin:6px 0 26px;
+    border-radius:0 4px 4px 0;
+  }
+  .fund-note .label{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:10.5px;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--sage-mid);
+    margin-bottom:8px;
+  }
+  .fund-note p{
+    font-size:14.5px;
+    line-height:1.6;
+    margin:0;
+    color:#3A4A3F;
+  }
+
+  /* ===== CTA ===== */
+  .cta{
+    margin:14px 32px 40px;
+    background:var(--sage-deep);
+    border-radius:6px;
+    padding:30px 28px;
+    text-align:left;
+  }
+  .cta h3{
+    font-family:'Fraunces',serif;
+    color:var(--paper);
+    font-size:21px;
+    font-weight:600;
+    margin:0 0 10px;
+  }
+  .cta p{
+    color:#C9D6C9;
+    font-size:14.5px;
+    margin:0 0 20px;
+    line-height:1.6;
+  }
+  .cta-btn{
+    display:inline-block;
+    background:var(--gold);
+    color:var(--sage-deep);
+    font-family:'IBM Plex Mono',monospace;
+    font-weight:600;
+    font-size:13px;
+    letter-spacing:.04em;
+    padding:12px 22px;
+    border-radius:3px;
+    text-decoration:none;
+    border:none;
+  }
+
+  /* ===== Footer ===== */
+  .footer{
+    padding:22px 32px 34px;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    color:#7D8B7F;
+    line-height:1.7;
+    border-top:1px solid var(--line);
+  }
+  .footer a{color:#7D8B7F;border-bottom:1px solid #C7CFC7;}
+
+  @media(max-width:520px){
+    .masthead,.hero,.body,.footer,.back-bar,.issue-nav{padding-left:20px;padding-right:20px;}
+    .board,.cta{margin-left:20px;margin-right:20px;}
+    h1{font-size:28px;}
+    .board-head,.board-row{grid-template-columns:1fr;gap:2px;}
+    .br-status{justify-self:start;margin-top:4px;}
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="back-bar">
+    <a href="/newsletter/">← All Issues</a>
+  </div>
+
+  <div class="masthead">
+    <div class="masthead-row">
+      <span>Sage Sports Group</span>
+      <span>Issue 02 — August 2026</span>
+    </div>
+    <div class="masthead-brand-row">
+      <a href="/" aria-label="Sage Sports Group home">
+        <img class="masthead-logo" src="https://sagesportsgroup.com/og-image.png" alt="Sage Sports Group logo">
+      </a>
+      <p class="brand"><em>Sage Sports Group Notes</em></p>
+    </div>
+    <p class="tagline">A biweekly dispatch on the fund, the clubs, and the market we're building in.</p>
+  </div>
+
+  <div class="issue-nav">
+    <div class="label">Past Issues</div>
+    <div class="issue-nav-row">
+      <div>
+        <a class="issue-pill" href="/newsletter/issue-01.html">Issue 01</a>
+        <span class="issue-pill current">Issue 02 (this issue)</span>
+      </div>
+      <a class="archive-link" href="/newsletter/">View full archive →</a>
+    </div>
+  </div>
+
+  <div class="hero">
+    <div class="eyebrow">Roster reveal: Essen, Pro A</div>
+    <h1>Five returners. Seven new faces.</h1>
+    <p class="dek">ETB Miners Essen open their first Pro A season returning the core of last year's championship group, plus seven additions found the way we find most of our players: start with the data, check it against the budget, and bring in our head coach's read on who fits before anyone signs. Here's who's on the roster and why we like this group's chances.</p>
+  </div>
+
+  <div class="board">
+    <div class="board-head single"><span>Coaching Staff</span></div>
+    <div class="board-row single">
+      <div><span class="br-name">Lars Wendt</span><span class="br-role">— Head Coach</span></div>
+    </div>
+  </div>
+
+  <div class="board">
+    <div class="board-head">
+      <span>2026/27 Roster</span>
+      <span></span>
+      <span>Status</span>
+    </div>
+    <div class="board-row">
+      <div class="br-name">Quashawn Lane</div>
+      <div class="br-from">—</div>
+      <div class="br-status status-up">Returning</div>
+    </div>
+    <div class="board-row">
+      <div class="br-name">Marc Friedrici</div>
+      <div class="br-from">—</div>
+      <div class="br-status status-close">Returning</div>
+    </div>
+    <div class="board-row">
+      <div class="br-name">Ben Uzoma</div>
+      <div class="br-from">—</div>
+      <div class="br-status status-close">Returning</div>
+    </div>
+    <div class="board-row">
+      <div class="br-name">Darius Dawson</div>
+      <div class="br-from">BBC Coburg, Pro B</div>
+      <div class="br-status status-watch">New</div>
+    </div>
+    <div class="board-row">
+      <div class="br-name">Niclas Sperber</div>
+      <div class="br-from">—</div>
+      <div class="br-status status-close">Returning</div>
+    </div>
+    <div class="board-row">
+      <div class="br-name">Jonathan Almstedt</div>
+      <div class="br-from">—</div>
+      <div class="br-status status-close">Returning</div>
+    </div>
+    <div class="board-row">
+      <div class="br-name">Ronney Ani</div>
+      <div class="br-from">—</div>
+      <div class="br-status status-watch">New</div>
+    </div>
+    <div class="board-row">
+      <div class="br-name">JJ Mann</div>
+      <div class="br-from">Belmont, NCAA D-I</div>
+      <div class="br-status status-watch">New · from BBL</div>
+    </div>
+    <div class="board-row">
+      <div class="br-name">Craig Möller</div>
+      <div class="br-from">—</div>
+      <div class="br-status status-watch">New · former BBL</div>
+    </div>
+    <div class="board-row">
+      <div class="br-name">Isaiah Sanders</div>
+      <div class="br-from">Fairmont State, NCAA D-II</div>
+      <div class="br-status status-watch">New · from Pro A</div>
+    </div>
+    <div class="board-row">
+      <div class="br-name">Cedric Johnson</div>
+      <div class="br-from">Louisiana-Monroe, NCAA D-I</div>
+      <div class="br-status status-watch">New</div>
+    </div>
+    <div class="board-row">
+      <div class="br-name">Jackson Price</div>
+      <div class="br-from">Marist, NCAA D-I</div>
+      <div class="br-status status-watch">New</div>
+    </div>
+  </div>
+
+  <div class="body">
+
+    <p><span class="drop">Five</span> of last year's championship roster are back. <strong>Quashawn Lane</strong> (New Haven, NCAA D-II) was the Pro B MVP last season — 16.0 points, 4.8 rebounds, 5.8 assists, 1.5 steals a game — and this year he's actually slotted in as our backup point guard, which says more about the depth we've added than anything about him. <strong>Marc Friedrici</strong>, our leading German scorer, and <strong>Ben Uzoma</strong>, our 6'11" center, both return too — Uzoma deters a lot of shots at the rim, which doesn't always show up on film but does show up in the numbers. <strong>Niclas Sperber</strong> also returns; he's 30, in the prime of his career, and one of the few players on this roster with real Pro A experience already. <strong>Jonathan Almstedt</strong>, a 6'9" center who was one of the more efficient bench bigs in the league last season, rounds out the group.</p>
+
+    <p><strong>Craig Möller</strong> and <strong>JJ Mann</strong>, both played in the Basketball Bundesliga (BBL), Germany's top division, in recent seasons. Getting two players who could be playing in the BBL for a team that was just promoted to Pro A from Pro B is a major recruitment win. Mann is a Belmont product and the 2014 Ohio Valley Conference Player of the Year who's spent close to a decade playing pro basketball in Germany, most recently with Gladiators Trier. This is really the point of how we recruit: we build a shortlist from the data on who fits the budget and the style we want to play, we then use feedback from our head coach to narrow the list further before anyone signs. That process is also what got us <strong>Isaiah Sanders</strong> (Fairmont State, NCAA D-II), who's coming to us straight out of Pro A itself after a season with Tigers Tübingen.</p>
+
+    <p><strong>Darius Dawson</strong> is a player we're very excited about. He played last season for BBC Coburg in Pro B — a team we actually faced in the playoffs — and by the numbers he was even more productive than Lane: 16.5 points, 7.4 rebounds, 2.5 assists a game, shooting 62% from the field, with efficiency metrics that rank among the best Pro B individual seasons last year.</p>
+
+    <p>The rest of the class is where the process does its quieter work. <strong>Cedric Johnson</strong> (Louisiana-Monroe, NCAA D-I) played last season in Norway, where he finished inside the top 10 in the league in offensive efficiency — the kind of production a lot of clubs simply don't have visibility into. <strong>Jackson Price</strong> (Marist, NCAA D-I) shot 47.6% from the field and 33.3% from three on real volume in the MAAC, which fits the kind of shooting we want on the floor.</p>
+
+    <p>This roster is not an accident, and it wasn't built by chasing names. It came together roughly €10K under what we'd budgeted, which was already one of the lower payrolls in the league — proof, we think, that a disciplined process finds production without having to overpay for it.</p>
+
+    <p>Our head coach will be working with an NBA-style analytics setup this season that no other Pro A team has: real-time lineup data, opponent tendencies, and possession-level tracking. It's the same underlying approach we used, on a purely pro bono basis, with Frayles de Guasave in Mexico's CIBACOPA league last season — a team with the smallest budget in the league that made it all the way to the championship final. We're not promising the same result here, but the tools are the same, and one thing they'll help with directly is minute distribution: giving the coaches a clearer read on how to split minutes across the roster to maximize our chances of winning each individual game, rather than relying on habit or a fixed rotation.</p>
+
+    <p>It's also worth being honest about how hard a playoff run in year one actually is. Since German basketball returned to a normal schedule after COVID, the best debut season by a promoted club belongs to Dresden, who went 19–15, finished 8th, and made the playoffs in 2022/23. The next-best win total in that span is 14 (Münster, also 2022/23), and the next-best finish is 12th (Rasta Vechta B, 2023/24). Go back further and only two other clubs have done it in the last fifteen years: Karlsruhe finished 5th in 2017/18, Rostock finished 5th in 2018/19, and further back than that, Vechta actually won the Pro A title outright in 2012/13 and went up to the BBL. That's four clubs total making the playoffs in their debut Pro A season across that whole period. We're aiming to be the fifth, and we built this roster because we think we have a real shot at it — not because it's an easy bar to clear.</p>
+
+    <div class="fund-note">
+      <div class="label">A note on the fund</div>
+      <p>We're in active conversations with several larger checks that would meaningfully move us toward closing out this round, so the window to join Fund I is narrowing. Once it closes, we'll be opening Fund II, which will lean more toward soccer with a larger overall raise, though basketball opportunities will still be part of it. If you're weighing Fund I versus waiting, that timeline is worth factoring in.</p>
+    </div>
+
+  </div>
+
+  <div class="cta">
+    <h3>Updated fund materials are ready.</h3>
+    <p>The Essen roster build and full-season model are folded into the latest deck. If you'd like to book time with Paul or Colin to go through it, just reply — or reach us directly below.</p>
+    <a class="cta-btn" href="mailto:paul@sagesportsgroup.com,colin@sagesportsgroup.com?subject=Sage%20Notes%20—%20Investor%20Call%20Request">Email us to book a time →</a>
+  </div>
+
+  <div class="footer">
+    Sage Sports Group<br>
+    Paul Sabin (<a href="mailto:paul@sagesportsgroup.com">paul@sagesportsgroup.com</a>) &amp; Colin Montague (<a href="mailto:colin@sagesportsgroup.com">colin@sagesportsgroup.com</a>)<br>
+    <a href="https://sagesportsgroup.com" target="_blank" rel="noopener">sagesportsgroup.com</a> · This note is for informational purposes only.
+  </div>
+
+</div>
+</body>
+</html>

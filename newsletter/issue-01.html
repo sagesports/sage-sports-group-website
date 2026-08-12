@@ -98,6 +98,55 @@
     letter-spacing:.03em;
   }
 
+  /* ===== Issue nav ===== */
+  .issue-nav{
+    background:var(--paper-2);
+    padding:14px 32px;
+    border-bottom:1px solid var(--line);
+  }
+  .issue-nav .label{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:10px;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    color:#7D8B7F;
+    margin-bottom:8px;
+  }
+  .issue-nav-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:10px;
+  }
+  .issue-pill{
+    display:inline-block;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    font-weight:600;
+    letter-spacing:.03em;
+    text-transform:uppercase;
+    color:var(--ink);
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:20px;
+    padding:5px 12px;
+    text-decoration:none;
+    margin-right:8px;
+  }
+  .issue-pill:hover{border-color:var(--sage-mid);}
+  .issue-pill.current{
+    color:var(--sage-deep);
+    border-color:var(--gold);
+  }
+  .archive-link{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11.5px;
+    font-weight:600;
+    color:var(--clay);
+    text-decoration:none;
+  }
+
   /* ===== Club section header with crest ===== */
   .club-head{
     display:flex;
@@ -353,6 +402,17 @@
       <p class="brand"><em>Sage Sports Group Notes</em></p>
     </div>
     <p class="tagline">A biweekly dispatch on the fund, the clubs, and the market we're building in.</p>
+  </div>
+
+  <div class="issue-nav">
+    <div class="label">Past Issues</div>
+    <div class="issue-nav-row">
+      <div>
+        <span class="issue-pill current">Issue 01 (this issue)</span>
+        <a class="issue-pill" href="/newsletter/issue-02.html">Issue 02</a>
+      </div>
+      <a class="archive-link" href="/newsletter/">View full archive →</a>
+    </div>
   </div>
 
   <div class="hero">
