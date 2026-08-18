@@ -4,6 +4,15 @@
   # No build command needed for static site
   publish = "."
 
+# Newsletter section disabled — the /newsletter/ pages and files still exist
+# in the repo, this redirect just stops Netlify from serving them publicly.
+# Remove this block (and re-enable the "Notes" nav links) to bring it back.
+[[redirects]]
+  from = "/newsletter/*"
+  to = "/"
+  status = 302
+  force = true
+
 # Redirect rules - serve index.html as the main page
 [[redirects]]
   from = "/*"
